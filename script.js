@@ -33,3 +33,37 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //////////////////////////////////////////////////////////////////////
+
+function generatePassword() {
+  //Ask the user for the length of password;
+  var length = passwordLength();
+  
+}
+
+//Check the password's length
+function passwordLength(){
+  var input = prompt("Please specify the length of the password (At least 8 characters and no more than 128)");
+  var correct = false;
+
+  while(correct === false)
+  {
+    //If the input is not a valid number
+    if(isNaN(input))
+    {
+      input = prompt("Please try again (At least 8 characters and no more than 128)");
+    }
+
+    //If the input is less than 8 or greater than 128
+    else if(Number(input) < 8 || Number(input) > 128)
+    {
+      input = prompt("Password's length is invalid, please try again (At least 8 characters and no more than 128)");
+    }
+
+    //Return the password's length
+    else
+    {
+      correct = true;
+    }
+  }
+  return Number(input);
+}
