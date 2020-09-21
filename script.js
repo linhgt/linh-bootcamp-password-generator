@@ -81,25 +81,30 @@ function passwordTypes(){
     var lowerCase = confirm("Include lower case characters?");
     if(lowerCase)
     {
+      typeList.push("lower case");
       typeCount++;
     }
   
     var upperCase = confirm("Include upper case characters?");
     if(upperCase)
     {
+      typeList.push("upper case");
       typeCount++;
     }
   
     var numeric = confirm("Include numberic characters?");
     if(numeric)
     {
+      typeList.push("numeric");
       typeCount++;
     }
   
     var specialCharacter = confirm("Include special characters?");
     if(specialCharacter)
     {
+      typeList.push("special");
       typeCount++;
     }
   }
+  return typeList;
 }
