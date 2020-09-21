@@ -74,27 +74,32 @@ function passwordTypes(){
   var typeCount = 0;  //Count the total criteria that user picks
   var typeList = [];  //List of the character types picked by user
 
-  var lowerCase = confirm("Include lower case characters?");
-  if(lowerCase)
+  //Loop until the user has picked at least 1 criteria
+  while(typeCount === 0)
   {
-    typeCount++;
-  }
-
-  var upperCase = confirm("Include upper case characters?");
-  if(upperCase)
-  {
-    typeCount++;
-  }
-
-  var numeric = confirm("Include numberic characters?");
-  if(numeric)
-  {
-    typeCount++;
-  }
-
-  var specialCharacter = confirm("Include special characters?");
-  if(specialCharacter)
-  {
-    typeCount++;
+    alert("Pick at least 1 character type");
+    var lowerCase = confirm("Include lower case characters?");
+    if(lowerCase)
+    {
+      typeCount++;
+    }
+  
+    var upperCase = confirm("Include upper case characters?");
+    if(upperCase)
+    {
+      typeCount++;
+    }
+  
+    var numeric = confirm("Include numberic characters?");
+    if(numeric)
+    {
+      typeCount++;
+    }
+  
+    var specialCharacter = confirm("Include special characters?");
+    if(specialCharacter)
+    {
+      typeCount++;
+    }
   }
 }
