@@ -41,14 +41,6 @@ function generatePassword() {
 
   //Ask the user for character types included
   var types = passwordTypes();
-
-  //Store chosen charset in this array
-  var typeArray = [];
-
-  var lowerSet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  var upperSet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  var numericSet = ["0","1","2","3","4","5","6","7","8","9"];
-  var specialSet = ["!","@","#","$","%","^","&","*","(",")","{","}","|","[","]",";","'",":","<",">","?","/"];
 }
 
 //Check the password's length
@@ -84,6 +76,11 @@ function passwordTypes(){
   var typeCount = 0;  //Count the total criteria that user picks
   var typeList = [];  //List of the character types picked by user
 
+  var lowerSet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var upperSet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var numericSet = ["0","1","2","3","4","5","6","7","8","9"];
+  var specialSet = ["!","@","#","$","%","^","&","*","(",")","{","}","|","[","]",";","'",":","<",">","?","/"];
+
   //Loop until the user has picked at least 1 criteria
   while(typeCount === 0)
   {
@@ -93,7 +90,7 @@ function passwordTypes(){
     var lowerCase = confirm("Include lower case characters?");
     if(lowerCase)
     {
-      typeList.push("lower case");
+      typeList.push(lowerSet);
       typeCount++;
     }
   
@@ -101,7 +98,7 @@ function passwordTypes(){
     var upperCase = confirm("Include upper case characters?");
     if(upperCase)
     {
-      typeList.push("upper case");
+      typeList.push(upperSet);
       typeCount++;
     }
   
@@ -109,7 +106,7 @@ function passwordTypes(){
     var numeric = confirm("Include numberic characters?");
     if(numeric)
     {
-      typeList.push("numeric");
+      typeList.push(numericSet);
       typeCount++;
     }
   
@@ -117,9 +114,10 @@ function passwordTypes(){
     var specialCharacter = confirm("Include special characters?");
     if(specialCharacter)
     {
-      typeList.push("special");
+      typeList.push(specialSet);
       typeCount++;
     }
   }
+  //Return the list of chosen charsets
   return typeList;
 }
