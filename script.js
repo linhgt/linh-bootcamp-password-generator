@@ -38,6 +38,7 @@ function generatePassword() {
   //Ask the user for the length of password;
   var length = passwordLength();
 
+  //Ask the user for character types included
   var types = passwordTypes();
 }
 
@@ -78,6 +79,8 @@ function passwordTypes(){
   while(typeCount === 0)
   {
     alert("Pick at least 1 character type");
+
+    //lower case?
     var lowerCase = confirm("Include lower case characters?");
     if(lowerCase)
     {
@@ -85,6 +88,7 @@ function passwordTypes(){
       typeCount++;
     }
   
+    //upper case?
     var upperCase = confirm("Include upper case characters?");
     if(upperCase)
     {
@@ -92,6 +96,7 @@ function passwordTypes(){
       typeCount++;
     }
   
+    //numeric?
     var numeric = confirm("Include numberic characters?");
     if(numeric)
     {
@@ -99,6 +104,7 @@ function passwordTypes(){
       typeCount++;
     }
   
+    //special?
     var specialCharacter = confirm("Include special characters?");
     if(specialCharacter)
     {
