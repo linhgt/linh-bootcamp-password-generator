@@ -60,7 +60,7 @@ function generatePassword() {
 
     password += selectedChar;
   }
-  console.log(password);
+  return password;
 }
 
 //Check the password's length
