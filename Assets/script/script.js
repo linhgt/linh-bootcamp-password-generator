@@ -40,25 +40,28 @@ function generatePassword() {
   var length = passwordLength();
 
   //Ask the user for character types included
-  var types = passwordTypes();
-
-  for (var i = 0; i < length; i++)
+  if(length != null)
   {
-    //The goal is to pick a random charset from types
-    //Then pick a random character from that chosen charset and append it to the password
+    var types = passwordTypes();
 
-    var selectedSet = [];     //Temporary selected set
-    var randomSetNum = 0;     //Temporary randomly generated number for set
-    var selectedChar = '';    //Temporary selected char
-    var randomCharNum = 0;    //Temporary randomly generated number for char
-
-    randomSetNum = Math.floor(Math.random() * types.length);
-    selectedSet = types[randomSetNum];
-
-    randomCharNum = Math.floor(Math.random() * selectedSet.length);
-    selectedChar = selectedSet[randomCharNum];
-
-    password += selectedChar;
+    for (var i = 0; i < length; i++)
+    {
+      //The goal is to pick a random charset from types
+      //Then pick a random character from that chosen charset and append it to the password
+  
+      var selectedSet = [];     //Temporary selected set
+      var randomSetNum = 0;     //Temporary randomly generated number for set
+      var selectedChar = '';    //Temporary selected char
+      var randomCharNum = 0;    //Temporary randomly generated number for char
+  
+      randomSetNum = Math.floor(Math.random() * types.length);
+      selectedSet = types[randomSetNum];
+  
+      randomCharNum = Math.floor(Math.random() * selectedSet.length);
+      selectedChar = selectedSet[randomCharNum];
+  
+      password += selectedChar;
+    }
   }
   return password;
 }
@@ -77,9 +80,15 @@ function passwordLength(){
     }
 
     //If the input is less than 8 or greater than 128
-    else if(Number(input) < 8 || Number(input) > 128)
+    else if(Number(input) && (Number(input) < 8 || Number(input) > 128))
     {
       input = prompt("Password's length is invalid, please try again (At least 8 characters and no more than 128)");
+    }
+
+    //If the user clicks cancel
+    else if(input === null)
+    {
+      return null;
     }
 
     //Return the password's length
